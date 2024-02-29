@@ -5,7 +5,7 @@ import { NzButtonModule } from 'ng-zorro-antd/button';
 
 
 const components: any[] = [];
-const modules = [
+const modules: any[] = [
   CommonModule,
   NzButtonModule
 ];
