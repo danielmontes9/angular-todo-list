@@ -16,6 +16,7 @@ import { NzInputModule } from 'ng-zorro-antd/input';
 import { NzMessageModule } from 'ng-zorro-antd/message';
 import { NzResultModule } from 'ng-zorro-antd/result';
 import { NzListModule } from 'ng-zorro-antd/list';
+import { NzPopconfirmModule } from 'ng-zorro-antd/popconfirm';
 
 
 const components: any[] = [];
@@ -35,7 +36,8 @@ const modules: any[] = [
   NzInputModule,
   NzMessageModule,
   NzResultModule,
-  NzListModule
+  NzListModule,
+  NzPopconfirmModule,
 ];
 
 
@@ -47,6 +49,6 @@ const modules: any[] = [
   exports: [
     ...components,
     ...modules
-  ]
+  ],
 })
 export class SharedModule { }

@@ -37,6 +37,11 @@ export class TodoComponent implements OnInit {
     this.nzMessage.create("success", `La tarea ha sido agregada correctamente.`);
   }
 
+  deleteTaskByUUID(uuidSelected: string): void {
+    this.tasks = this.tasks.filter(task => task.uuid != uuidSelected);
+    this.nzMessage.create("success", `La tarea seleccionada ha sido eliminada correctamente.`);
+  }
+
   cleanAllTasks(): void {
     this.tasks = [];
     this.nzMessage.create("success", `Las tareas ha sido eliminadas correctamente.`);
