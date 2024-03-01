@@ -17,6 +17,7 @@ import { NzMessageModule } from 'ng-zorro-antd/message';
 import { NzResultModule } from 'ng-zorro-antd/result';
 import { NzListModule } from 'ng-zorro-antd/list';
 import { NzPopconfirmModule } from 'ng-zorro-antd/popconfirm';
+import { NZ_I18N, es_ES } from 'ng-zorro-antd/i18n';
 
 
 const components: any[] = [];
@@ -39,6 +40,9 @@ const modules: any[] = [
   NzListModule,
   NzPopconfirmModule,
 ];
+const providers: any = [ 
+  { provide: NZ_I18N, useValue: es_ES },
+];
 
 
 @NgModule({
@@ -50,5 +54,8 @@ const modules: any[] = [
     ...components,
     ...modules
   ],
+  providers: [
+    ...providers,
+  ]
 })
 export class SharedModule { }
