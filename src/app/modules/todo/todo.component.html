@@ -3,19 +3,24 @@
         <nz-card nzHoverable>
             <h1 nz-typography>📝 Todo App</h1>
 
-            <form nz-form nz-row nzJustify="space-between" [nzLayout]="'inline'" [formGroup]="validateForm" (ngSubmit)="addTask()">
-                <div nz-col nzSpan="20">
+            <form nz-form nz-row [nzGutter]="[8, 8]" nzJustify="space-between" nzAlign="middle" [nzLayout]="'inline'" [formGroup]="validateForm" (ngSubmit)="addTask()">
+                <div nz-col nzXs="24" nzMd="16">
                     <nz-form-control>
-                    <nz-input-group nzPrefixIcon="reconciliation">
-                        <input formControlName="task" nz-input placeholder="Tarea" />
-                    </nz-input-group>
+                        <nz-input-group nzPrefixIcon="reconciliation">
+                            <input formControlName="task" nz-input placeholder="Tarea" />
+                        </nz-input-group>
                     </nz-form-control>
                 </div>
 
-                <div nz-col nzSpan="3">
-                    <nz-form-control nz-row nzAlign="middle">
-                        <button nz-button nzType="primary" nzShape="circle" [disabled]="addTaskControl.value == ''">
+                <div nz-col nzXs="24" nzMd="8">
+                    <nz-form-control>
+                        <button 
+                            nz-button
+                            nzBlock 
+                            nzType="primary" 
+                            [disabled]="addTaskControl.value == ''">
                             <i nz-icon nzType="plus" nzTheme="outline"></i>
+                            Agregar Tarea
                         </button>
                     </nz-form-control>
                 </div>
@@ -25,7 +30,8 @@
             <div nz-row>
                 <div *ngIf="tasks.length == 0" nz-col nzSpan="24" nzAlign="middle">
                     <nz-result 
-                        [nzIcon]="'snippets'" 
+                        [nzIcon]="'info'" 
+                        [nzStatus]="'info'"
                         [nzTitle]="'UPPS! Aún no tienes tareas registradas'"
                         [nzSubTitle]="'Ingresa una tarea en la barra y después pulsa el botón +, para agregar una nueva tarea.'">
                     </nz-result>
@@ -45,7 +51,7 @@
                                         nzShape="circle" 
                                         nzDanger 
                                         nz-popconfirm
-                                        nzPopconfirmTitle="¿Estás seguro de eliminar todas las tareas?"
+                                        nzPopconfirmTitle="¿Estás seguro de eliminar esta tarea?"
                                         (nzOnConfirm)="deleteTaskByUUID(task.uuid)"
                                         nzPopconfirmPlacement="top">
                                     <i nz-icon nzType="delete"></i>
@@ -56,28 +62,28 @@
                 </div>
             </div>
 
+            <nz-divider></nz-divider>
 
-            <div *ngIf="tasks.length > 0" nz-row nzJustify="space-between" nzAlign="middle">
-                <div nz-col nzSpan="14" nzAlign="middle">
-                    Tienes {{ tasks.length }} 
+            <div *ngIf="tasks.length > 0" nz-row [nzGutter]="[8, 8]" nzJustify="space-between" nzAlign="middle">
+                <div nz-col nzXs="24" nzMd="16" nzAlign="middle">
+                    Tienes <strong>{{ tasks.length }}</strong> 
                     tarea{{ tasks.length > 1 ? 's' : '' }} 
                     pendiente{{ tasks.length > 1 ? 's' : '' }}.
                 </div>
 
-                <div nz-col nzSpan="10" >
-                    <div nz-row nzJustify="end">
-                        <button 
-                            nz-button 
-                            nzType="primary" 
-                            nzDanger
-                            nz-popconfirm
-                            nzPopconfirmTitle="¿Estás seguro de eliminar todas las tareas?"
-                            (nzOnConfirm)="cleanAllTasks()"
-                            nzPopconfirmPlacement="bottom">
-                            <i nz-icon nzType="clear" nzTheme="outline"></i>
-                            Limpiar Todo
-                        </button>
-                    </div>
+                <div nz-col nzXs="24" nzMd="8">
+                    <button 
+                        nz-button
+                        nzBlock 
+                        nzType="primary" 
+                        nzDanger
+                        nz-popconfirm
+                        nzPopconfirmTitle="¿Estás seguro de eliminar todas las tareas?"
+                        (nzOnConfirm)="cleanAllTasks()"
+                        nzPopconfirmPlacement="bottom">
+                        <i nz-icon nzType="clear" nzTheme="outline"></i>
+                        Limpiar Todo
+                    </button>
                 </div>
             </div>
         </nz-card>
