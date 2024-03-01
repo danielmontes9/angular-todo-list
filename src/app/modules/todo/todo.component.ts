@@ -13,13 +13,15 @@ export class TodoComponent implements OnInit {
 
   validateForm!: FormGroup;
   tasks: Task[] = [];
-  copyStr = 'This is a copyable text.';
+  isVisibleModal = false;
+  taskSelected!: Task;
+  titleTaskEditable!: string;
 
   constructor(private fb: FormBuilder, private nzMessage: NzMessageService) { }
 
   ngOnInit(): void {
     this.validateForm = this.fb.group({
-      task: ['', []]
+      task: ['', []],
     });
   }
 
@@ -35,6 +37,26 @@ export class TodoComponent implements OnInit {
     this.tasks = [...this.tasks, newTask];
     this.validateForm.controls['task'].patchValue("");
     this.nzMessage.create("success", `La tarea ha sido agregada correctamente.`);
+  }
+
+  showEditTaskModal(task: Task): void {
+    this.isVisibleModal = true;
+    this.taskSelected = task;
+    this.titleTaskEditable = task.title;
+  }
+
+  saveTaskEdit(): void {
+    this.isVisibleModal = false;
+    this.taskSelected.title = this.titleTaskEditable;
+    let index = this.tasks.findIndex(task => task.uuid === this.taskSelected.uuid);
+    if(index !== 1) {
+      this.tasks[index] = this.taskSelected;
+      this.nzMessage.create("success", `La tarea seleccionada ha sido actualizada correctamente.`);
+    }
+  }
+
+  cancelTaskChanges(): void {
+    this.isVisibleModal = false;
   }
 
   deleteTaskByUUID(uuidSelected: string): void {

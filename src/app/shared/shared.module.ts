@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 import { NZ_I18N, es_ES } from 'ng-zorro-antd/i18n';
@@ -19,6 +19,7 @@ import { NzResultModule } from 'ng-zorro-antd/result';
 import { NzListModule } from 'ng-zorro-antd/list';
 import { NzPopconfirmModule } from 'ng-zorro-antd/popconfirm';
 import { NzDividerModule } from 'ng-zorro-antd/divider';
+import { NzModalModule } from 'ng-zorro-antd/modal';
 
 
 const components: any[] = [];
@@ -26,6 +27,7 @@ const modules: any[] = [
   CommonModule,
   BrowserAnimationsModule,
   HttpClientModule,
+  FormsModule,
   ReactiveFormsModule,
 
   NzTypographyModule, 
@@ -40,7 +42,8 @@ const modules: any[] = [
   NzResultModule,
   NzListModule,
   NzPopconfirmModule,
-  NzDividerModule
+  NzDividerModule,
+  NzModalModule
 ];
 const providers: any = [ 
   { provide: NZ_I18N, useValue: es_ES },

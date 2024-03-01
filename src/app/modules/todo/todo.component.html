@@ -42,9 +42,22 @@
                         <nz-list-item *ngFor="let task of tasks">
                             <p nz-typography nz-row nzAlign="middle" [(nzContent)]="task.title" class="mb-0"></p>
                             <nz-space [nzSize]="'middle'">
-                                <button *nzSpaceItem nz-button nzType="dashed" nzShape="circle">
+                                <button *nzSpaceItem nz-button nzType="dashed" nzShape="circle" (click)="showEditTaskModal(task)">
                                     <i nz-icon nzType="edit"></i>
                                 </button>
+                                <nz-modal
+                                    [(nzVisible)]="isVisibleModal"
+                                    nzTitle="Actualizar Tarea"
+                                    nzCentered
+                                    [nzOkDisabled]="titleTaskEditable ==''"
+                                    (nzOnCancel)="cancelTaskChanges()"
+                                    (nzOnOk)="saveTaskEdit()"
+                                    >
+                                    <ng-container *nzModalContent>
+                                        <input [(ngModel)]="titleTaskEditable" nz-input placeholder="Tarea" />
+                                    </ng-container>
+                                </nz-modal>
+
                                 <button *nzSpaceItem 
                                         nz-button 
                                         nzType="dashed" 
