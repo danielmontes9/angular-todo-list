@@ -37,4 +37,9 @@ export class TodoComponent implements OnInit {
     this.nzMessage.create("success", `La tarea ha sido agregada correctamente.`);
   }
 
+  cleanAllTasks(): void {
+    this.tasks = [];
+    this.nzMessage.create("success", `Las tareas ha sido eliminadas correctamente.`);
+  }
+
 }
