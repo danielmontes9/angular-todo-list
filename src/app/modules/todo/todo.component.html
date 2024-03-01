@@ -3,7 +3,7 @@
         <nz-card nzHoverable>
             <h1 nz-typography>📝 Todo App</h1>
 
-            <form nz-form nz-row [nzGutter]="[8, 8]" nzJustify="space-between" nzAlign="middle" [nzLayout]="'inline'" [formGroup]="validateForm" (ngSubmit)="addTask()">
+            <form nz-form nz-row [nzGutter]="[8, 8]" nzJustify="space-between" nzAlign="middle" [nzLayout]="'inline'" [formGroup]="taskForm" (ngSubmit)="addTask()">
                 <div nz-col nzXs="24" nzMd="16">
                     <nz-form-control>
                         <nz-input-group nzPrefixIcon="reconciliation">
