@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-todo',
@@ -7,9 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TodoComponent implements OnInit {
 
-  constructor() { }
+  validateForm!: FormGroup;
+
+  submitForm(): void {
+    console.log('submit', this.validateForm.value);
+  }
+
+  constructor(private fb: FormBuilder) { }
 
   ngOnInit(): void {
+    this.validateForm = this.fb.group({
+      task: [null, [Validators.required]],
+      remember: [true]
+    });
   }
 
 }
