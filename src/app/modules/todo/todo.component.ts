@@ -12,6 +12,7 @@ export class TodoComponent implements OnInit {
 
   validateForm!: FormGroup;
   tasks: Task[] = [];
+  copyStr = 'This is a copyable text.';
 
   constructor(private fb: FormBuilder, private nzMessage: NzMessageService) { }
 
