@@ -1,6 +1,12 @@
 # AngularTodoList
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.0.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.0 and [Node](https://nodejs.org/) version 14.15.0.
+
+## Overview
+
+### Screenshots
+![](./src/assets/imgs/angular-todo-list-overview.png)
+
 
 ## Development server
 
