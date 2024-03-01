@@ -13,6 +13,7 @@ import { NzButtonModule } from 'ng-zorro-antd/button';
 import { NzCardModule } from 'ng-zorro-antd/card';
 import { NzFormModule } from 'ng-zorro-antd/form';
 import { NzInputModule } from 'ng-zorro-antd/input';
+import { NzMessageModule } from 'ng-zorro-antd/message';
 
 
 const components: any[] = [];
@@ -30,6 +31,7 @@ const modules: any[] = [
   NzCardModule,
   NzFormModule,
   NzInputModule,
+  NzMessageModule,
 ];
 
 

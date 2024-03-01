@@ -5,17 +5,16 @@
 
             <form nz-form nz-row nzJustify="space-between" [nzLayout]="'inline'" [formGroup]="validateForm" (ngSubmit)="addTask()">
                 <div nz-col nzSpan="20">
-                    <!-- nzErrorTip="Please input your task! -->
                     <nz-form-control>
                     <nz-input-group nzPrefixIcon="reconciliation">
-                        <input formControlName="task" nz-input placeholder="Task" />
+                        <input formControlName="task" nz-input placeholder="Tarea" />
                     </nz-input-group>
                     </nz-form-control>
                 </div>
 
                 <div nz-col nzSpan="3">
                     <nz-form-control nz-row nzAlign="middle">
-                        <button nz-button nzType="primary" nzShape="circle" [disabled]="addTaskControlValue == ''">
+                        <button nz-button nzType="primary" nzShape="circle" [disabled]="addTaskControl.value == ''">
                             <i nz-icon nzType="plus" nzTheme="outline"></i>
                         </button>
                     </nz-form-control>
