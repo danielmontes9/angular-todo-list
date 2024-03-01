@@ -9,17 +9,22 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class TodoComponent implements OnInit {
 
   validateForm!: FormGroup;
-
-  submitForm(): void {
-    console.log('submit', this.validateForm.value);
-  }
+  tasks: Task[] = [];
 
   constructor(private fb: FormBuilder) { }
 
   ngOnInit(): void {
     this.validateForm = this.fb.group({
-      task: [null, []]
+      task: ['', []]
     });
+  }
+
+  get addTaskControlValue() {
+    return this.validateForm.value.task;
+  }
+
+  addTask(): void {
+    this.tasks = [...this.tasks, this.addTaskControlValue];
   }
 
 }
