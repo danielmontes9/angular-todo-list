@@ -20,6 +20,7 @@ import { NzListModule } from 'ng-zorro-antd/list';
 import { NzPopconfirmModule } from 'ng-zorro-antd/popconfirm';
 import { NzDividerModule } from 'ng-zorro-antd/divider';
 import { NzModalModule } from 'ng-zorro-antd/modal';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 
 
 const components: any[] = [];
@@ -51,7 +52,7 @@ const providers: any = [
 
 
 @NgModule({
-  declarations: [...components],
+  declarations: [...components, NotFoundComponent],
   imports: [
     ...modules
   ],
