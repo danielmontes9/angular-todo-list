@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NzMessageService } from 'ng-zorro-antd/message';
-
+import { Task } from 'src/app/core/models/task.model';
+import { v4 as uuidv4 } from 'uuid';
 
 @Component({
   selector: 'app-todo',
@@ -27,7 +28,11 @@ export class TodoComponent implements OnInit {
   }
 
   addTask(): void {
-    this.tasks = [...this.tasks, this.addTaskControl.value];
+    const newTask: Task = {
+      uuid: uuidv4(),
+      title: this.addTaskControl.value,
+    }
+    this.tasks = [...this.tasks, newTask];
     this.validateForm.controls['task'].patchValue("");
     this.nzMessage.create("success", `La tarea ha sido agregada correctamente.`);
   }

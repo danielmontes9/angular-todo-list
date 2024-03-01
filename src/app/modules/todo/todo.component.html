@@ -34,7 +34,7 @@
                 <div *ngIf="tasks.length != 0" nz-col nzSpan="24" nzAlign="middle">
                     <nz-list nzItemLayout="vertical">
                         <nz-list-item *ngFor="let task of tasks">
-                            <p nz-typography nzCopyable nzEditable [(nzContent)]="copyStr"></p>
+                            <p nz-typography nzCopyable nzEditable [(nzContent)]="task.title" class="mb-0"></p>
                         </nz-list-item>
                     </nz-list>
                 </div>
