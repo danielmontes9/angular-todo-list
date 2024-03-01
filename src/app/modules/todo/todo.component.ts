@@ -18,8 +18,7 @@ export class TodoComponent implements OnInit {
 
   ngOnInit(): void {
     this.validateForm = this.fb.group({
-      task: [null, [Validators.required]],
-      remember: [true]
+      task: [null, []]
     });
   }
 
